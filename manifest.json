@@ -1,14 +1,18 @@
 {
   "name": "Naver Video Auto HD",
   "description": "Automtically loads your preferred Naver video quality.",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Open the popup"
+    "default_title": "Naver Video Auto HD"
   },
-  "icons": {},
+  "icons": {
+    "128": "icon128.png",
+    "48": "icon48.png",
+    "16": "icon16.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://*.naver.com/*"],
