@@ -5,18 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Naver Video Auto HD</title>
+    <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
-    <h1>Naver Video Auto HD</h1>
-    <ul class="quality-list">
-      <li data-quality="1080">1080p</li>
-      <li data-quality="720">720p</li>
-      <li data-quality="480">480p</li>
-      <li data-quality="360">360p</li>
-      <li data-quality="270">270p</li>
-      <li data-quality="144">144p</li>
-      <li data-quality="ABR">Auto</li>
-    </ul>
+    <div class="container">
+      <h1 class="title">Naver Video Auto HD</h1>
+      <select class="quality-select">
+        <option value="1080">1080p</option>
+        <option value="720">720p</option>
+        <option value="480">480p</option>
+        <option value="360">360p</option>
+        <option value="270">270p</option>
+        <option value="144">144p</option>
+        <option value="ABR">Auto</option>
+      </select>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
