@@ -11,3 +11,4 @@ A browser extension that sets the quality of Naver videos according to the user'
 - Naver Sports
 - Naver Sports Live
 - Naver News
+- Naver News Live

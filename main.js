@@ -247,6 +247,60 @@
     if (didClick) uRmcPlayerObserver.disconnect();
   };
 
+  const setQualityOfPressLivePlayer = () => {
+    didClick = true;
+
+    const qualityItems = [...document.querySelectorAll('.resolutionBarBox > ul > li > button')];
+    if (qualityItems.length <= 1) {
+      didClick = false;
+      return;
+    }
+
+    switch (quality) {
+      case '1080':
+        const quality1080 = qualityItems.filter((ele) => ele.textContent.includes('1080p'))[0];
+        if (quality1080) {
+          quality1080.click();
+          break;
+        }
+      case '720': {
+        const quality720 = qualityItems.filter((ele) => ele.textContent.includes('720p'))[0];
+        if (quality720) {
+          quality720.click();
+          break;
+        }
+      }
+      case '480': {
+        const quality480 = qualityItems.filter((ele) => ele.textContent.includes('480p'))[0];
+        if (quality480) {
+          quality480.click();
+          break;
+        }
+      }
+      case '360': {
+        const quality360 = qualityItems.filter((ele) => ele.textContent.includes('360p'))[0];
+        if (quality360) {
+          quality360.click();
+          break;
+        }
+      }
+      case '270':
+      case '144': {
+        const quality270 = qualityItems.filter((ele) => ele.textContent.includes('270p'))[0];
+        if (quality270) {
+          quality270.click();
+          break;
+        }
+      }
+      case 'ABR': {
+        break;
+      }
+      default: {
+        didClick = false;
+      }
+    }
+  };
+
   let throttleTimer;
   const domObserver = new MutationObserver(() => {
     if (throttleTimer) return;
@@ -272,6 +326,10 @@
         const uRmcPlayerObserver = new MutationObserver(() => setQualityOfURmcPlayer(uRmcPlayer, uRmcPlayerObserver));
         uRmcPlayerObserver.observe(uRmcPlayer, { childList: true, subtree: true });
       }
+
+      // Naver News Live
+      const pressLivePlayer = document.querySelector('.prli_player');
+      if (pressLivePlayer) setQualityOfPressLivePlayer();
 
       if (didClick) domObserver.disconnect();
     }, 1000);
