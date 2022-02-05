@@ -1,17 +1,18 @@
 {
-  "name": "Naver Video Auto HD",
-  "description": "Automtically loads your preferred Naver video quality.",
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
   "version": "1.0.0",
   "manifest_version": 3,
   "permissions": ["storage"],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Naver Video Auto HD"
+    "default_title": "__MSG_appName__"
   },
   "icons": {
-    "128": "icon128.png",
-    "48": "icon48.png",
-    "16": "icon16.png"
+    "128": "icons/icon128.png",
+    "48": "icons/icon48.png",
+    "16": "icons/icon16.png"
   },
   "content_scripts": [
     {
