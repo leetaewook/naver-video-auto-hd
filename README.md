@@ -4,7 +4,7 @@ A browser extension that sets the quality of Naver videos according to the user'
 
 <br>
 
-### Confirmed page
+### Confirmed pages
 
 - Naver TV
 - Naver TV Live
