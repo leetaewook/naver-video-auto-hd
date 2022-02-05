@@ -141,6 +141,7 @@
       settingButton.click();
       await new Promise((res) => setTimeout(() => res(), 10)); // It's faster than < await click(); >.
       qualityItems = [...document.querySelectorAll('button[class^="SettingPopup_button_menu"]')];
+      if (!qualityItems.length) return;
     }
 
     didClick = true;
