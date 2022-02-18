@@ -196,9 +196,6 @@
   const setQualityOfURmcPlayer = (uRmcPlayer, uRmcPlayerObserver) => {
     didClick = true;
 
-    console.log('셋 퀄리티 오브 유알엠시 실행');
-    console.log('1080:', uRmcPlayer.querySelector('li[data-enc-option="1080P"] button'));
-
     switch (quality) {
       case '1080': {
         const quality1080 = uRmcPlayer.querySelector('li[data-enc-option="1080P"] button');
