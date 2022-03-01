@@ -196,8 +196,17 @@
   const setQualityOfURmcPlayer = (uRmcPlayer, uRmcPlayerObserver) => {
     didClick = true;
 
+    console.log('셋 퀄리티 오브 유알엠시 실행');
+    console.log('1080:', uRmcPlayer.querySelector('li[data-enc-option="1080P"] button'));
+
     switch (quality) {
-      case '1080':
+      case '1080': {
+        const quality1080 = uRmcPlayer.querySelector('li[data-enc-option="1080P"] button');
+        if (quality1080) {
+          quality1080.click();
+          break;
+        }
+      }
       case '720': {
         const quality720 = uRmcPlayer.querySelector('li[data-enc-option="720P"] button');
         if (quality720) {
@@ -245,7 +254,7 @@
       }
     }
 
-    if (didClick) uRmcPlayerObserver.disconnect();
+    if (didClick && uRmcPlayerObserver) uRmcPlayerObserver.disconnect();
   };
 
   const setQualityOfPressLivePlayer = () => {
@@ -321,12 +330,16 @@
       const livePlayer = document.querySelector('[class^="LivePlayer"]');
       if (livePlayer) await setQualityOfLivePlayer();
 
-      // Naver News
+      // Old Naver News
       const uRmcPlayer = document.querySelector('.vod_area > iframe')?.contentWindow?.document?.body;
       if (uRmcPlayer) {
         const uRmcPlayerObserver = new MutationObserver(() => setQualityOfURmcPlayer(uRmcPlayer, uRmcPlayerObserver));
         uRmcPlayerObserver.observe(uRmcPlayer, { childList: true, subtree: true });
       }
+
+      // Naver News
+      const uRmcPlayer2 = document.querySelector('.u_rmcplayer');
+      if (uRmcPlayer2) setQualityOfURmcPlayer(uRmcPlayer2);
 
       // Naver News Live
       const pressLivePlayer = document.querySelector('.prli_player');
